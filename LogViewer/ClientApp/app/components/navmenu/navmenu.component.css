@@ -17,6 +17,15 @@ li.link-active a:focus {
     left: 0;
     right: 0;
     z-index: 1;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.65);
+}
+
+.main-nav small {
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
 }
 
 @media (min-width: 768px) {
