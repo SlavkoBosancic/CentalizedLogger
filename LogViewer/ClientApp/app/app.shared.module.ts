@@ -12,6 +12,10 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 
+// Services
+import { LogDataService } from './services/log.data.service';
+import { LogMockService } from './services/log.mock.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -25,7 +29,10 @@ import { SearchComponent } from './components/search/search.component';
         FormsModule,
         AppRoutingModuleShared      // Routing module
     ],
-    providers: []
+    providers: [
+        LogDataService,
+        LogMockService
+    ]
 })
 
 export class AppModuleShared {
