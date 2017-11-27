@@ -22,6 +22,12 @@ th.sortable.ascending span:before {
     content: "\e252";
 }
 
+tbody tr td {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .form-group {
     padding-right: inherit;
 }

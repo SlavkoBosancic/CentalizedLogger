@@ -18,10 +18,10 @@ export class TableComponent {
     @Output() newSortColumn: EventEmitter<string> = new EventEmitter<string>();
 
     private columns: any[] = [
-        { columnName: 'id', columnTitle: 'Log ID' },
-        { columnName: 'createDate', columnTitle: 'Create Date' },
-        { columnName: 'logLevel', columnTitle: 'Log Level', centered: true },
-        { columnName: 'logSource', columnTitle: 'Log Source' },
+        { columnName: 'id', columnTitle: 'Log ID', width: 200 },
+        { columnName: 'createDate', columnTitle: 'Create Date', width: 160 },
+        { columnName: 'logLevel', columnTitle: 'Log Level', width: 120, centered: true },
+        { columnName: 'logSource', columnTitle: 'Log Source', width: 180 },
         { columnName: 'description', columnTitle: 'Description' }
     ];
 

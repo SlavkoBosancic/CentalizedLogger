@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Log } from '../models/Log';
 import { LogLevel } from '../models/LogLevel';
 import { CommonLogSources } from '../models/CommonLogSources';
+import { BaseSearchRequest } from '../models/BaseSearchRequest';
 import { SearchRequest } from '../models/SearchRequest';
 import { SearchResponse } from '../models/SearchResponse';
 
@@ -31,21 +32,39 @@ let logs: Log[] = [
 export class LogMockService{
     constructor() { }
 
-    getLogs(searchQuery: SearchRequest): Promise<SearchResponse<Log>> {
+    getRecentLogs(baseSearchRequest: BaseSearchRequest): Promise<SearchResponse<Log>>{
+        let mockQuery = new SearchResponse<Log>();
+        
+        let startIndex = baseSearchRequest.skip;
+        let endIndex = startIndex + baseSearchRequest.take;
+
+        mockQuery.result = logs.slice(startIndex, endIndex);
+        mockQuery.total = logs.length;
+
+        mockQuery.skip = baseSearchRequest.skip;
+        mockQuery.take = baseSearchRequest.take;
+
+        mockQuery.sortBy = "createDate";
+        mockQuery.descending = false;
+        
+        return Promise.resolve(mockQuery);
+    }
+
+    getLogs(searchRequest: SearchRequest): Promise<SearchResponse<Log>> {
         let mockQuery = new SearchResponse<Log>();
 
         mockQuery.result = logs;
         mockQuery.total = logs.length;
 
-        mockQuery.sortBy = searchQuery.sortBy;
-        mockQuery.descending = searchQuery.descending;
+        mockQuery.sortBy = searchRequest.sortBy;
+        mockQuery.descending = searchRequest.descending;
 
-        mockQuery.skip = searchQuery.skip;   
-        mockQuery.take = searchQuery.take;
+        mockQuery.skip = searchRequest.skip;   
+        mockQuery.take = searchRequest.take;
 
-        mockQuery.descriptionFilter = searchQuery.descriptionFilter;
-        mockQuery.logSourceFilter = searchQuery.logSourceFilter;
-        mockQuery.logLevelFilter = searchQuery.logLevelFilter;
+        mockQuery.descriptionFilter = searchRequest.descriptionFilter;
+        mockQuery.logSourceFilter = searchRequest.logSourceFilter;
+        mockQuery.logLevelFilter = searchRequest.logLevelFilter;
 
         return Promise.resolve(mockQuery);
     }

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 // Components
 import { Log } from '../../models/Log';
-import { SearchRequest } from '../../models/SearchRequest';
+import { BaseSearchRequest } from '../../models/BaseSearchRequest';
 import { SearchResponse } from '../../models/SearchResponse';
 
 // Services
@@ -15,30 +16,48 @@ import { LogDataService } from '../../services/log.data.service';
 })
 
 export class HomeComponent implements OnInit {
-    constructor(private logDataService: LogDataService) { }
+    constructor(private logDataService: LogDataService,
+                private activeRoute: ActivatedRoute,
+                private router: Router) { }
 
     private searchResponse = new SearchResponse<Log>();
 
     ngOnInit(): void {
 
-        //let baseSearchRequest = this.extractBaseSearchRequest();
+        // create a subsription on route parameters change
+        this.activeRoute
+            .params
+            .subscribe((params: Params) => {
+                // extract search request params (take, skip...)
+                let baseSearchRequest = this.extractBaseSearchRequest(params);
 
-        this.logDataService
-            .fetchLogs(new SearchRequest())
-            .then(result => {
-                
-                console.log(result);
-                result.sortBy = "createDate";
-                result.take = 4;
-                result.skip = 0;
+                console.log(baseSearchRequest);
 
-                this.searchResponse.applyValues(result);
-            })
+                // retrieve rows using data service
+                this.logDataService
+                    .fetchRecentLogs(baseSearchRequest)
+                    .then(result => {
+                        
+                        console.log(result);
+                        this.searchResponse.applyValues(result);
+                    })
+            });
+
+
     }
 
-    // extractBaseSearchRequest(): SearchRequest {
+    extractBaseSearchRequest(params: Params): BaseSearchRequest {
+        let result = new BaseSearchRequest();
 
-    // }
+        // extract 'page' route parameter and safeguard against zero, negative and NaN
+        let pageParam = params['page'] || 1;
+        let pageNumber = Number(pageParam) || 1;
+
+        result.take = 5;        // Hard coded value for number of rows per page
+        result.skip = pageNumber < 1 ? 0 : (pageNumber - 1) * 5;
+        
+        return result;
+    }
 
     setSortColumn(columnName: string): void {
         console.log("set sort by: " + columnName);
@@ -46,6 +65,6 @@ export class HomeComponent implements OnInit {
 
     // event handler for the pager component - (go to page) event 
     goToPage(pageNumber: number): void {
-        console.log("new page number: " + pageNumber);
+        this.router.navigate(['/home', pageNumber], { relativeTo: this.activeRoute })
     }
 }

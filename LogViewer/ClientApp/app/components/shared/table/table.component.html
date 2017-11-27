@@ -5,6 +5,7 @@
                 class="sortable"
                 [class.text-center]="column.centered"
                 [ngClass]="isSortedBy(column.columnName)"
+                [ngStyle]="{'width.px': column.width}"
                 (click)="setSort(column.columnName)">
                     {{column.columnTitle}}
                     &nbsp;
@@ -14,10 +15,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let row of rows">
-            <td>{{row[columns[0].columnName]}}</td> <!-- id -->
-            <td>{{row[columns[1].columnName] | date:"yyyy-MM-dd HH:mm:ss" }}</td> <!-- createDate -->
-            <td class="text-center" [ngClass]="logLevelBg(row[columns[2].columnName])">{{row[columns[2].columnName]}}</td> <!-- logLevel -->
-            <td>{{row[columns[3].columnName]}}</td> <!-- LogSource -->
+            <td [ngStyle]="{'max-width.px': columns[0].width}">{{row[columns[0].columnName]}}</td> <!-- id -->
+            <td [ngStyle]="{'max-width.px': columns[1].width}">{{row[columns[1].columnName] | date:"yyyy-MM-dd HH:mm:ss" }}</td> <!-- createDate -->
+            <td [ngStyle]="{'max-width.px': columns[2].width}" class="text-center" [ngClass]="logLevelBg(row[columns[2].columnName])">{{row[columns[2].columnName]}}</td> <!-- logLevel -->
+            <td [ngStyle]="{'max-width.px': columns[3].width}">{{row[columns[3].columnName]}}</td> <!-- LogSource -->
             <td>{{row[columns[4].columnName]}}</td> <!-- description -->
         </tr>
     </tbody>
