@@ -1,3 +1,8 @@
+thead tr {
+    background: #4189c7;
+    color: white;
+}
+
 th.sortable {
     cursor: pointer;
     user-select: none;

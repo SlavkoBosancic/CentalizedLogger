@@ -14,10 +14,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let row of rows">
-            <td *ngFor="let column of columns"
-                [class.text-center]="column.centered">
-                    {{displayValue(column.columnName, row[column.columnName])}}
-            </td>
+            <td>{{row[columns[0].columnName]}}</td> <!-- id -->
+            <td>{{row[columns[1].columnName] | date:"yyyy-MM-dd HH:mm:ss" }}</td> <!-- createDate -->
+            <td class="text-center" [ngClass]="logLevelBg(row[columns[2].columnName])">{{row[columns[2].columnName]}}</td> <!-- logLevel -->
+            <td>{{row[columns[3].columnName]}}</td> <!-- LogSource -->
+            <td>{{row[columns[4].columnName]}}</td> <!-- description -->
         </tr>
     </tbody>
 </table>

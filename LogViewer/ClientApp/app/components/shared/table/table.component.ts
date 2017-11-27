@@ -27,20 +27,6 @@ export class TableComponent {
 
     constructor() { }
 
-    // function to adjust the display of certain values within the Log object (e.g. Create Date)
-    displayValue(columnName:string, columnValue: any): string {
-        let result = "";
-
-        if(columnName == 'createDate'){
-            let createDate: Date = (<Date>columnValue);
-            result = createDate.toLocaleDateString() + " " + createDate.toLocaleTimeString();
-        }else{
-            result = columnValue;
-        }
-
-        return result;
-    }
-
     setSort(columnName: string): void {
         this.newSortColumn.emit(columnName);
     }
@@ -61,15 +47,10 @@ export class TableComponent {
     logLevelBg(logLevel: LogLevel): string {
         var result = "";
 
-        switch (logLevel) {
-            case LogLevel.ERROR:
-                result = "danger";
-                break;
-            case LogLevel.WARNING:
-                result = "warning";
-                break;
-            default:
-                break;
+        if(logLevel == LogLevel.ERROR){
+            result = "danger";
+        } else if (logLevel == LogLevel.WARNING){
+            result = "warning";
         }
 
         return result;
