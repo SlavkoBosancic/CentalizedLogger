@@ -1,0 +1,22 @@
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+th.sortable span {
+    font-size: 0.75em;
+    top:5px;
+    float: right;
+}
+
+th.sortable.descending span:before {
+    content: "\e253";
+}
+
+th.sortable.ascending span:before {
+    content: "\e252";
+}
+
+.form-group {
+    padding-right: inherit;
+}

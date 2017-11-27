@@ -12,6 +12,9 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 
+// Component - shared
+import { TableComponent } from './components/shared/table/table.component';
+
 // Services
 import { LogDataService } from './services/log.data.service';
 import { LogMockService } from './services/log.mock.service';
@@ -21,7 +24,8 @@ import { LogMockService } from './services/log.mock.service';
         AppComponent,
         NavMenuComponent,
         HomeComponent,
-        SearchComponent
+        SearchComponent,
+        TableComponent
     ],
     imports: [
         CommonModule,

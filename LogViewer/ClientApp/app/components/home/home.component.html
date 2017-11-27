@@ -1,1 +1,7 @@
 <h1>Latest log enteries.</h1>
+
+<table-component [rows]="searchResponse.result"
+                 [sortedBy]="searchResponse.sortBy"
+                 [descending]="searchResponse.descending"
+                 (newSortColumn)="setSortColumn($event)">
+</table-component>

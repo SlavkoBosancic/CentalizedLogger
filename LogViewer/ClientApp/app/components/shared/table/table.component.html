@@ -1,0 +1,23 @@
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th *ngFor="let column of columns"
+                class="sortable"
+                [class.text-center]="column.centered"
+                [ngClass]="isSortedBy(column.columnName)"
+                (click)="setSort(column.columnName)">
+                    {{column.columnTitle}}
+                    &nbsp;
+                    <span class="glyphicon"></span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of rows">
+            <td *ngFor="let column of columns"
+                [class.text-center]="column.centered">
+                    {{displayValue(column.columnName, row[column.columnName])}}
+            </td>
+        </tr>
+    </tbody>
+</table>

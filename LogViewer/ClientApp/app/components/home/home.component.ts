@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 // Components
+import { Log } from '../../models/Log';
 import { SearchRequest } from '../../models/SearchRequest';
+import { SearchResponse } from '../../models/SearchResponse';
 
 // Services
 import { LogDataService } from '../../services/log.data.service';
@@ -15,10 +17,21 @@ import { LogDataService } from '../../services/log.data.service';
 export class HomeComponent implements OnInit {
     constructor(private logDataService: LogDataService) { }
 
+    private searchResponse = new SearchResponse<Log>();
+
     ngOnInit(): void { 
-        let t = this.logDataService.fetchLogs(new SearchRequest());
-        t.then(result => { 
-            console.log(result);
-        })
+        this.logDataService
+            .fetchLogs(new SearchRequest())
+            .then(result => {
+                
+                console.log(result);
+                result.sortBy = "createDate";
+
+                this.searchResponse.applyValues(result);
+            })
+    }
+
+    setSortColumn(columnName: string): void {
+        console.log("set sort by: " + columnName);
     }
 }
