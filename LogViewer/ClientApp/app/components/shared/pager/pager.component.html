@@ -1,0 +1,15 @@
+<nav *ngIf="totalPages() > 1" aria-label="Page navigation">
+    <ul class="pagination">
+        <li [class.disabled]="currentPage() == 1">
+            <span aria-label="Previous" (click)="goToPrevious()">
+                <span aria-hidden="true">&laquo;</span>
+            </span>
+        </li>
+        <li><span class="pageDisplay">{{currentPage()}} / {{totalPages()}}</span></li>
+        <li [class.disabled]="currentPage() == totalPages()">
+            <span aria-label="Next" (click)="goToNext()">
+                <span aria-hidden="true">&raquo;</span>
+            </span>
+        </li>
+    </ul>
+</nav>

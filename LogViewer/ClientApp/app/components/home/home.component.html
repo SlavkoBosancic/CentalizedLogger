@@ -5,3 +5,9 @@
                  [descending]="searchResponse.descending"
                  (newSortColumn)="setSortColumn($event)">
 </table-component>
+
+<pager-component [take]="searchResponse.take"
+                 [skip]="searchResponse.skip"
+                 [total]="searchResponse.total"
+                 (goToPage)="goToPage($event)">
+</pager-component>

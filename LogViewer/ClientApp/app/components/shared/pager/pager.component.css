@@ -1,0 +1,17 @@
+.pagination li span {
+    user-select: none;
+    cursor: pointer;
+}
+
+.pagination li.disabled span {
+    cursor: default;
+}
+
+.pagination li span.pageDisplay {
+    cursor: default;
+}
+
+.pagination li span.pageDisplay:hover {
+    background-color: white;
+    color: #337ab7;
+}
