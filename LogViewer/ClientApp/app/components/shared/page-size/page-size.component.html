@@ -1,0 +1,6 @@
+<div class="">
+    <label>Page Size:&nbsp;</label>
+    <select #pageSizeBox class="" (change)="setPageSize(pageSizeBox.value)">
+        <option *ngFor="let pageSize of pageSizeOptions" [attr.value]="pageSize" [attr.selected]="">{{pageSize}}</option>
+    </select>
+</div>

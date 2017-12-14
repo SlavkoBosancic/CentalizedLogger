@@ -1,4 +1,6 @@
 <h2>Latest log enteries</h2>
+<page-size-component></page-size-component>
+<hr />
 
 <table-component [rows]="searchResponse.result"
                  [sortedBy]="searchResponse.sortBy"
@@ -6,8 +8,8 @@
                  (newSortColumn)="setSortColumn($event)">
 </table-component>
 
-<pager-component [take]="searchResponse.take"
+<page-select-component [take]="searchResponse.take"
                  [skip]="searchResponse.skip"
                  [total]="searchResponse.total"
                  (goToPage)="goToPage($event)">
-</pager-component>
+</page-select-component>

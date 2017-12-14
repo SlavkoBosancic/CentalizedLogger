@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'pager-component',
-    templateUrl: './pager.component.html',
-    styleUrls: ['./pager.component.css']
+    selector: 'page-select-component',
+    templateUrl: './page-select.component.html',
+    styleUrls: ['./page-select.component.css']
 })
 
-export class PagerComponent {
+export class PageSelectComponent {
     @Input() take: number
     @Input() skip: number
     @Input() total: number

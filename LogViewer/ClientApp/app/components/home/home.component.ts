@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
         console.log("set sort by: " + columnName);
     }
 
-    // event handler for the pager component - (go to page) event 
+    // event handler for the page-select component - (go to page) event 
     goToPage(pageNumber: number): void {
         this.router.navigate(['/home', pageNumber], { relativeTo: this.activeRoute })
     }

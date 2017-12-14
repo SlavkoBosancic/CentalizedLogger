@@ -14,7 +14,8 @@ import { SearchComponent } from './components/search/search.component';
 
 // Component - shared
 import { TableComponent } from './components/shared/table/table.component';
-import { PagerComponent } from './components/shared/pager/pager.component';
+import { PageSelectComponent } from './components/shared/page-select/page-select.component';
+import { PageSizeComponent } from './components/shared/page-size/page-size.component';
 
 // Services
 import { LogDataService } from './services/log.data.service';
@@ -27,7 +28,8 @@ import { LogMockService } from './services/log.mock.service';
         HomeComponent,
         SearchComponent,
         TableComponent,
-        PagerComponent
+        PageSelectComponent,
+        PageSizeComponent
     ],
     imports: [
         CommonModule,
