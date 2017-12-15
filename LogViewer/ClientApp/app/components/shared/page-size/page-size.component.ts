@@ -12,5 +12,8 @@ export class PageSizeComponent {
 
     private pageSizeOptions: number[] = new Array<number>(5, 15, 30);
 
-    
+    setPageSize(value: string): void {
+        let numValue = +value;
+        this.newPageSize.emit(numValue);
+    }
 }

@@ -67,4 +67,9 @@ export class HomeComponent implements OnInit {
     goToPage(pageNumber: number): void {
         this.router.navigate(['/home', pageNumber], { relativeTo: this.activeRoute })
     }
+
+    // event handler for page-size component
+    setPageSize(pageSize: number): void {
+        
+    }
 }

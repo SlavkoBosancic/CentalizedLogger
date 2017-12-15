@@ -1,6 +1,11 @@
-<h2>Latest log enteries</h2>
-<page-size-component></page-size-component>
-<hr />
+<div class="row">
+    <div class="col-md-10">
+        <h2>Latest log enteries</h2>
+    </div>
+    <div class="col-md-2 text-right">
+        <page-size-component [take]="5" (newPageSize)="setPageSize($event)" class="form-inline"></page-size-component>
+    </div>
+</div>
 
 <table-component [rows]="searchResponse.result"
                  [sortedBy]="searchResponse.sortBy"
