@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
         let pageNumber = Number(pageParam) || 1;
 
         result.take = 5;        // Hard coded value for number of rows per page
-        result.skip = pageNumber < 1 ? 0 : (pageNumber - 1) * 5;
+        result.skip = pageNumber < 1 ? 0 : (pageNumber - 1) * result.take;
         
         return result;
     }
