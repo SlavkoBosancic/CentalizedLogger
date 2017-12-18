@@ -45,7 +45,7 @@ export class LogMockService{
         mockQuery.take = baseSearchRequest.take;
 
         mockQuery.sortBy = "createDate";
-        mockQuery.descending = false;
+        mockQuery.descending = true;
         
         return Promise.resolve(mockQuery);
     }
@@ -53,7 +53,10 @@ export class LogMockService{
     getLogs(searchRequest: SearchRequest): Promise<SearchResponse<Log>> {
         let mockQuery = new SearchResponse<Log>();
 
-        mockQuery.result = logs;
+        let startIndex = searchRequest.skip;
+        let endIndex = startIndex + searchRequest.take;
+
+        mockQuery.result = logs.slice(startIndex, endIndex);
         mockQuery.total = logs.length;
 
         mockQuery.sortBy = searchRequest.sortBy;

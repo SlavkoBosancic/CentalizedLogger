@@ -1,1 +1,48 @@
 ﻿<h1>Search component</h1>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-search"></span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <form class="navbar-form navbar-left">
+
+                <!-- <div class="form-group">
+                    <label>Description:&nbsp;</label>
+                    <input type="text" #descriptionBox class="form-control" [attr.value]="searchResponse.descriptionFilter" (keyup)="setDescriptionFilter(descriptionBox.value)" placeholder="Description...">
+                </div> -->
+
+                <!-- <div class="form-group">
+                    <label>Log Source:&nbsp;</label>
+                    <select #logSourceBox class="form-control text-capitalize"  (change)="setSourceFilter(logSourceBox.value)">
+                        <option *ngFor="let source of logSources" [attr.value]="source" [attr.selected]="source === searchQueryResult.logSourceFilter ? true : null" class="text-capitalize">{{source}}</option>
+                    </select>
+                </div> -->
+
+                <page-size-component [take]="searchResponse.take" (newPageSize)="setPageSize($event)">
+                </page-size-component>
+
+                <button type="button" class="btn btn-default">Refresh</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<table-component [rows]="searchResponse.result"
+                 [sortedBy]="searchResponse.sortBy"
+                 [descending]="searchResponse.descending"
+                 (newSortColumn)="setSortColumn($event)">
+</table-component>
+
+<page-select-component [take]="searchResponse.take"
+                 [skip]="searchResponse.skip"
+                 [total]="searchResponse.total"
+                 (goToPage)="goToPage($event)">
+</page-select-component>

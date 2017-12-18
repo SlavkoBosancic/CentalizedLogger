@@ -32,7 +32,6 @@ export class TableComponent {
     }
 
     isSortedBy(columnName: string): string {
-        //console.log("evaluating isSortBy classes: " + columnName);
         let result = "";
 
         if(columnName.length){

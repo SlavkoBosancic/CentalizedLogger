@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
                 private router: Router) { }
 
     private searchResponse = new SearchResponse<Log>();
+    private pageSize = 10;          // Hard coded value for number of rows per page
 
     ngOnInit(): void {
 
@@ -42,8 +43,6 @@ export class HomeComponent implements OnInit {
                         this.searchResponse.applyValues(result);
                     })
             });
-
-
     }
 
     extractBaseSearchRequest(params: Params): BaseSearchRequest {
@@ -53,23 +52,14 @@ export class HomeComponent implements OnInit {
         let pageParam = params['page'] || 1;
         let pageNumber = Number(pageParam) || 1;
 
-        result.take = 5;        // Hard coded value for number of rows per page
-        result.skip = pageNumber < 1 ? 0 : (pageNumber - 1) * result.take;
+        result.take = this.pageSize;
+        result.skip = pageNumber < 1 ? 0 : (pageNumber - 1) * this.pageSize;
         
         return result;
-    }
-
-    setSortColumn(columnName: string): void {
-        console.log("set sort by: " + columnName);
     }
 
     // event handler for the page-select component - (go to page) event 
     goToPage(pageNumber: number): void {
         this.router.navigate(['/home', pageNumber], { relativeTo: this.activeRoute })
-    }
-
-    // event handler for page-size component
-    setPageSize(pageSize: number): void {
-        
     }
 }

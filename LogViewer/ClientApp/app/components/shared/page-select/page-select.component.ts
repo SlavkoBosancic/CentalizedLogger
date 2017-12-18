@@ -41,6 +41,7 @@ export class PageSelectComponent {
             newPageNumber = this.totalPages();
         }
 
-        this.goToPage.emit(newPageNumber);
+        if(newPageNumber != this.currentPage())
+            this.goToPage.emit(newPageNumber);
     }
 }
