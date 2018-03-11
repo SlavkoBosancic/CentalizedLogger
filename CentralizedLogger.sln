@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer", "LogViewer\LogViewer.csproj", "{FDCAE049-35CB-46AF-96FC-7E0E8A0AF650}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogViewer", "LogViewer\LogViewer.csproj", "{FDCAE049-35CB-46AF-96FC-7E0E8A0AF650}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer.Infrastructure", "LogViewer.Infrastructure\LogViewer.Infrastructure.csproj", "{964359D9-9C1A-4EB9-A677-16715EFF661A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer.Core", "LogViewer.Core\LogViewer.Core.csproj", "{F8970C8B-56E1-436D-913E-78116647CAD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer.Persistence", "LogViewer.Persistence\LogViewer.Persistence.csproj", "{491600F8-F720-45A3-BBAF-93A9CEA376F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer.Models", "LogViewer.Models\LogViewer.Models.csproj", "{38A37BCD-9748-43E7-BC7B-EC6CDA0BB262}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{FDCAE049-35CB-46AF-96FC-7E0E8A0AF650}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDCAE049-35CB-46AF-96FC-7E0E8A0AF650}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDCAE049-35CB-46AF-96FC-7E0E8A0AF650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{964359D9-9C1A-4EB9-A677-16715EFF661A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{964359D9-9C1A-4EB9-A677-16715EFF661A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964359D9-9C1A-4EB9-A677-16715EFF661A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{964359D9-9C1A-4EB9-A677-16715EFF661A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8970C8B-56E1-436D-913E-78116647CAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8970C8B-56E1-436D-913E-78116647CAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8970C8B-56E1-436D-913E-78116647CAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8970C8B-56E1-436D-913E-78116647CAD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{491600F8-F720-45A3-BBAF-93A9CEA376F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{491600F8-F720-45A3-BBAF-93A9CEA376F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{491600F8-F720-45A3-BBAF-93A9CEA376F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{491600F8-F720-45A3-BBAF-93A9CEA376F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38A37BCD-9748-43E7-BC7B-EC6CDA0BB262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38A37BCD-9748-43E7-BC7B-EC6CDA0BB262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38A37BCD-9748-43E7-BC7B-EC6CDA0BB262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38A37BCD-9748-43E7-BC7B-EC6CDA0BB262}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
