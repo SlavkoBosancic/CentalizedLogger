@@ -21,6 +21,6 @@ namespace LogViewer.Persistence.Interface
         /// <param name="take">Number of logs to retrieve</param>
         /// <param name="offset">Number of logs to skip first</param>
         /// <returns>List of logs or an empty list if params are out of range.</returns>
-        IEnumerable<Log> Read(int take, int offset);
+        IEnumerable<Log> ReadLatest(int take, int offset, out int total);
     }
 }
