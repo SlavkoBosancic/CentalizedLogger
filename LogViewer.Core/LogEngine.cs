@@ -5,6 +5,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
+using System.Linq;
 
 namespace LogViewer.Core
 {
@@ -20,9 +21,9 @@ namespace LogViewer.Core
 
         public bool EngineStarted => _engineStarted;
 
-        public void StartEngine(params ILogWriter[] logWriters)
+        public bool StartEngine(params ILogWriter[] logWriters)
         {
-            if (!_engineStarted)
+            if (!_engineStarted && logWriters.Any())
             {
                 lock (_lockObj)
                 {
@@ -37,13 +38,15 @@ namespace LogViewer.Core
                     }
                 }
             }
+
+            return _engineStarted;
         }
 
         public bool Enqueue(Log log)
         {
             var result = false;
 
-            if(log != null)
+            if(_engineStarted && log != null)
             {
                 _queue.Enqueue(log);
                 result = true;

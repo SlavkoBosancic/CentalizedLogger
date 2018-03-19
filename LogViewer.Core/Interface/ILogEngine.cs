@@ -7,7 +7,7 @@ namespace LogViewer.Core.Interface
     {
         bool EngineStarted { get; }
 
-        void StartEngine(params ILogWriter[] logWriters);
+        bool StartEngine(params ILogWriter[] logWriters);
 
         bool Enqueue(Log log);
     }
