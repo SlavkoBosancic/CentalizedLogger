@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LogDB.db = LogDB.db
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{908475E0-6ABB-4FC8-96EB-266BBF3D0A46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogViewer.Persistance.Test", "LogViewer.Persistance.Test\LogViewer.Persistance.Test.csproj", "{D7FC9FAE-E6D0-4327-B48A-C5158948A4B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,9 +48,16 @@ Global
 		{38A37BCD-9748-43E7-BC7B-EC6CDA0BB262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38A37BCD-9748-43E7-BC7B-EC6CDA0BB262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38A37BCD-9748-43E7-BC7B-EC6CDA0BB262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7FC9FAE-E6D0-4327-B48A-C5158948A4B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7FC9FAE-E6D0-4327-B48A-C5158948A4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7FC9FAE-E6D0-4327-B48A-C5158948A4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7FC9FAE-E6D0-4327-B48A-C5158948A4B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D7FC9FAE-E6D0-4327-B48A-C5158948A4B3} = {908475E0-6ABB-4FC8-96EB-266BBF3D0A46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {84345460-1B3F-4E44-B50E-EA29E9DDE1AC}

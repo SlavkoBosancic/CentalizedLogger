@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data.SQLite;
 
-namespace LogViewer.Persistence
+namespace LogViewer.Persistence.SQLite
 {
-    public class AdoNetLogReader : ILogReader
+    public class SQLiteLogReader : ILogReader
     {
 
         //        string connectionString =
@@ -56,7 +56,7 @@ namespace LogViewer.Persistence
 
         private readonly string _connectionString;
 
-        public AdoNetLogReader(string connectionString)
+        public SQLiteLogReader(string connectionString)
         {
             if (string.IsNullOrEmpty(connectionString))
                 throw new ArgumentNullException(nameof(connectionString));

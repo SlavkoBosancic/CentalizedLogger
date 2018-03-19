@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LogViewer.Models\LogViewer.Models.csproj" />
+    <ProjectReference Include="..\LogViewer.Persistence\LogViewer.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
